@@ -6,9 +6,24 @@ indent() {
 }
 
 echo "-----> Found a hello.txt"
-wget https://github.com/Kitware/CMake/releases/download/v3.21.0-rc3/cmake-3.21.0-rc3-linux-x86_64.sh -O cmake.sh
-./cmake.sh
+echo "-----> Installing cmake"
 
+# change to the the BUILD_DIR ($1)
+cd $1
+
+# download
+curl https://s3.amazonaws.com/mergeguard/cmake.tar.gz -s -O
+
+# make dir
+mkdir -p /tmp/codon/vendor
+
+# untar the binary to the directory we want
+tar -C /tmp/codon/vendor -xvf cmake.tar.gz
+
+debug=`ls /tmp/codon/vendor/bin`
+echo $debug
+
+echo $PATH
 # if hello.txt has contents, display them (indented to align)
 # otherwise error
 
