@@ -12,7 +12,7 @@ echo "-----> Found a hello.txt"
 
 
 URL_BOOST=https://sourceforge.net/projects/boost/files/boost/1.76.0/boost_1_76_0.tar.bz2
-#rm -rf $CACHE_DIR
+rm -rf $CACHE_DIR
 mkdir -p $CACHE_DIR
 cd $CACHE_DIR
 if [ -e $CACHE_DIR/include/boost/version.hpp ]; then
