@@ -12,7 +12,7 @@ echo "-----> Found a hello.txt"
 
 
 URL_BOOST=https://sourceforge.net/projects/boost/files/boost/1.76.0/boost_1_76_0.tar.bz2
-rm -rf $CACHE_DIR
+#rm -rf $CACHE_DIR
 mkdir -p $CACHE_DIR
 cd $CACHE_DIR
 if [ -e $CACHE_DIR/include/boost/version.hpp ]; then
@@ -30,10 +30,7 @@ else
   rm -rf boost_1_76_0 boost_1_76_0.tar.bz2
 fi
 
-export BOOST_ROOT=$CACHE_DIR
-export CMAKE_LIBRARY_PATH="$CACHE_DIR/lib:$CMAKE_LIBRARY_PATH"
-export CMAKE_INCLUDE_PATH="$CACHE_DIR/include:$CMAKE_INCLUDE_PATH"
-setenv "BOOST_ROOT" "$CACHE_DIR"
+
 export BOOST_INCLUDEDIR=$CACHE_DIR/include
 export BOOST_LIBRARYDIR=$CACHE_DIR/lib
 
@@ -72,7 +69,7 @@ $BUILD_DIR/.heroku/cmake/bin/cmake --version
 
 
 cd $BUILD_DIR/build 
-cmake ..
+cmake -DBOOST_ROOT=$CACHE_DIR ..
 make
 
 # if hello.txt has contents, display them (indented to align)
