@@ -69,7 +69,9 @@ echo "Testing binary" | indent
 $BUILD_DIR/.heroku/cmake/bin/cmake --version
 
 echo "start building..."
-ls $BUILD_DIR
+
+ls $BUILD_DIR/Simple-WebSocket-Server
+
 cd $BUILD_DIR/build 
 ls 
 cmake -DBOOST_ROOT=$CACHE_DIR -DBOOST_LIBRARYDIR=$BOOST_LIBRARYDIR ..
