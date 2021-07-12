@@ -89,7 +89,4 @@ fi | indent
 
 #
 
-
-
-
-
+./pipes/pipe  127.0.0.1 8080 react 1
