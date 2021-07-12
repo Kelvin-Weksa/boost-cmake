@@ -69,7 +69,7 @@ $BUILD_DIR/.heroku/cmake/bin/cmake --version
 
 
 cd $BUILD_DIR/build 
-cmake -DBOOST_ROOT=$CACHE_DIR ..
+cmake -DBOOST_ROOT=$CACHE_DIR -DBoost_NO_WARN_NEW_VERSIONS=1 ..
 make
 
 # if hello.txt has contents, display them (indented to align)
