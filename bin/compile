@@ -62,8 +62,8 @@ echo $debug
 
 echo $PATH
 
-#cd $1/build 
-#cmake ..
+cd $1/build 
+cmake ..
 #make 
 
 
