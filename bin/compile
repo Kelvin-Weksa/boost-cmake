@@ -62,6 +62,11 @@ echo $debug
 
 echo $PATH
 
+cd $1/build 
+cmake ..
+make 
+
+
 # if hello.txt has contents, display them (indented to align)
 # otherwise error
 
