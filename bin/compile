@@ -1,5 +1,5 @@
 #!/bin/sh
-## git add . && git commit -m "fleabag" && git push -u origin main
+# git add . && git commit -m "fleabag" && git push -u origin main
 
 indent() {
   sed -u 's/^/       /'
@@ -41,8 +41,8 @@ echo "$BOOST_LIBRARYDIR"
 echo "-----> Installing cmake"
 BP_DIR=$(cd $(dirname ${0:-}); cd ..; pwd)
 
-CMAKE_VERSION="3.13.4"
-BASE_URL="https://cmake.org/files/v3.13"
+CMAKE_VERSION="3.20.3"
+BASE_URL="https://cmake.org/files/v3.20"
 TARBALL="cmake-$CMAKE_VERSION-Linux-x86_64.tar.gz"
 TARBALL_PATH="/tmp/$TARBALL"
 
@@ -69,7 +69,7 @@ $BUILD_DIR/.heroku/cmake/bin/cmake --version
 
 
 cd $BUILD_DIR/build 
-cmake -DBOOST_ROOT=$CACHE_DIR -DBoost_NO_WARN_NEW_VERSIONS=1 ..
+cmake ..
 make
 
 # if hello.txt has contents, display them (indented to align)
