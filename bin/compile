@@ -6,7 +6,9 @@ indent() {
 }
 
 echo "-----> Found a hello.txt"
-wget http://www.cmake.org/files/v2.8/cmake-2.8.3.tar.gz
+wget https://github.com/Kitware/CMake/releases/download/v3.21.0-rc3/cmake-3.21.0-rc3-linux-x86_64.sh -O cmake.sh
+./cmake.sh
+
 # if hello.txt has contents, display them (indented to align)
 # otherwise error
 
