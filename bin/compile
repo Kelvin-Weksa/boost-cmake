@@ -72,7 +72,7 @@ ls
 echo "start building..."
 cd $BUILD_DIR/build 
 ls 
-cmake -DBOOST_ROOT="$CACHE_DIR" -DBOOST_LIBRARYDIR="$BOOST_LIBRARYDIR" ..
+cmake -DBOOST_ROOT=$CACHE_DIR -DBOOST_LIBRARYDIR=$BOOST_LIBRARYDIR ..
 make
 
 # if hello.txt has contents, display them (indented to align)
