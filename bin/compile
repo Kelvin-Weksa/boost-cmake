@@ -41,8 +41,8 @@ echo "$BOOST_LIBRARYDIR"
 echo "-----> Installing cmake"
 BP_DIR=$(cd $(dirname ${0:-}); cd ..; pwd)
 
-CMAKE_VERSION="3.21.0"
-BASE_URL="https://cmake.org/files/v3.21"
+CMAKE_VERSION="3.13.4"
+BASE_URL="https://cmake.org/files/v3.13"
 TARBALL="cmake-$CMAKE_VERSION-Linux-x86_64.tar.gz"
 TARBALL_PATH="/tmp/$TARBALL"
 
