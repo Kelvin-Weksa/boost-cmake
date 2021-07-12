@@ -1,10 +1,12 @@
 #!/bin/sh
+# git add . && git commit -m "fleabag" && git push -u origin main
 
 indent() {
   sed -u 's/^/       /'
 }
 
 echo "-----> Found a hello.txt"
+apt update
 
 # if hello.txt has contents, display them (indented to align)
 # otherwise error
@@ -16,3 +18,9 @@ else
   echo "hello.txt is not empty, here are the contents" | indent
   cat $1/hello.txt
 fi | indent
+
+
+
+
+
+
