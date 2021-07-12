@@ -70,12 +70,10 @@ $BUILD_DIR/.heroku/cmake/bin/cmake --version
 
 echo "start building..."
 
-ls $BUILD_DIR/Simple-WebSocket-Server
-ls $BUILD_DIR/Beast
 
 cd $BUILD_DIR/build 
 ls 
-cmake -DBOOST_ROOT=$CACHE_DIR -DBOOST_LIBRARYDIR=$BOOST_LIBRARYDIR ..
+cmake ..
 make
 
 # if hello.txt has contents, display them (indented to align)
