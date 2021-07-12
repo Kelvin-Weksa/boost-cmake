@@ -71,6 +71,10 @@ echo "Testing binary" | indent
 $BUILD_DIR/.heroku/cmake/bin/cmake --version
 
 
+cd $BUILD_DIR/build 
+cmake ..
+make
+
 # if hello.txt has contents, display them (indented to align)
 # otherwise error
 
