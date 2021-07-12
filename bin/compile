@@ -1,5 +1,5 @@
 #!/bin/sh
-# git add . && git commit -m "fleabag" && git push -u origin main
+## git add . && git commit -m "fleabag" && git push -u origin main
 
 indent() {
   sed -u 's/^/       /'
