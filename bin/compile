@@ -68,8 +68,8 @@ echo "export PATH=\"\$PATH:$BUILD_DIR/.heroku/cmake/bin\"" > $BP_DIR/export
 echo "Testing binary" | indent
 $BUILD_DIR/.heroku/cmake/bin/cmake --version
 
-ls 
 echo "start building..."
+ls $BUILD_DIR
 cd $BUILD_DIR/build 
 ls 
 cmake -DBOOST_ROOT=$CACHE_DIR -DBOOST_LIBRARYDIR=$BOOST_LIBRARYDIR ..
