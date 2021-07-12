@@ -5,16 +5,14 @@ indent() {
   sed -u 's/^/       /'
 }
 
+BUILD_DIR=${1:-}
+CACHE_DIR=${2:-}
+ENV_DIR=${3:-}
 echo "-----> Found a hello.txt"
-echo "-----> Installing cmake"
 
-##
-
-BUILD_DIR=$1
-CACHE_DIR=$2
 
 URL_BOOST=https://sourceforge.net/projects/boost/files/boost/1.76.0/boost_1_76_0.tar.bz2
-rm -rf $CACHE_DIR
+#rm -rf $CACHE_DIR
 mkdir -p $CACHE_DIR
 cd $CACHE_DIR
 if [ -e $CACHE_DIR/include/boost/version.hpp ]; then
@@ -44,27 +42,33 @@ echo "$BOOST_LIBRARYDIR"
 
 
 echo "-----> Installing cmake"
+BP_DIR=$(cd $(dirname ${0:-}); cd ..; pwd)
 
-# change to the the BUILD_DIR ($1)
-cd $1
+CMAKE_VERSION="3.8.1"
+BASE_URL="https://cmake.org/files/v3.8"
+TARBALL="cmake-$CMAKE_VERSION-Linux-x86_64.tar.gz"
+TARBALL_PATH="/tmp/$TARBALL"
 
-# download
-curl https://s3.amazonaws.com/mergeguard/cmake.tar.gz -s -O
+echo "-----> Installing CMake version: $CMAKE_VERSION"
 
-# make dir
-mkdir -p /tmp/codon/vendor
+echo "Downloading binary distribution" | indent
+curl --silent --retry 5 $BASE_URL/$TARBALL   --output $TARBALL_PATH
 
-# untar the binary to the directory we want
-tar -C /tmp/codon/vendor -xvf cmake.tar.gz
+echo "Verifying download" | indent
 
-debug=`ls /tmp/codon/vendor/bin`
-echo $debug
+echo "Extracting download" | indent
+tar xzf $TARBALL_PATH -C /tmp
 
-echo $PATH
+echo "Moving binary" | indent
+mkdir -p "$BUILD_DIR/.heroku/cmake/"
+mv ${TARBALL_PATH%.*.*}/bin "$BUILD_DIR/.heroku/cmake/"
+mv ${TARBALL_PATH%.*.*}/share "$BUILD_DIR/.heroku/cmake/"
 
-cd $1/build 
-cmake ..
-#make 
+echo "Exporting PATH" | indent
+echo "export PATH=\"\$PATH:$BUILD_DIR/.heroku/cmake/bin\"" > $BP_DIR/export
+
+echo "Testing binary" | indent
+$BUILD_DIR/.heroku/cmake/bin/cmake --version
 
 
 # if hello.txt has contents, display them (indented to align)
