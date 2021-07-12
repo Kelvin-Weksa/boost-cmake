@@ -6,8 +6,7 @@ indent() {
 }
 
 echo "-----> Found a hello.txt"
-sudo apt update
-
+wget http://www.cmake.org/files/v2.8/cmake-2.8.3.tar.gz
 # if hello.txt has contents, display them (indented to align)
 # otherwise error
 
