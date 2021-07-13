@@ -87,7 +87,6 @@ else
   cat $1/hello.txt
 fi | indent
 
-# 
 printenv
 
 
