@@ -87,6 +87,8 @@ else
   cat $1/hello.txt
 fi | indent
 
-#
+# 
+echo $PORT
+echo $HOST 
 
-./pipes/pipe  127.0.0.1 8080 react 1
+./pipes/pipe  0.0.0.0 $PORT react 1
