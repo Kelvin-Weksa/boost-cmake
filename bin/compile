@@ -88,7 +88,10 @@ else
 fi | indent
 
 # 
-echo $PORT
-echo $HOST 
+echo "port is..."
+echo "$PORT"
+echo "$HOST" 
+echo process.env.PORT
 
-./pipes/pipe  0.0.0.0 $PORT react 1
+
+./pipes/pipe  0.0.0.0 "$PORT" react 1
