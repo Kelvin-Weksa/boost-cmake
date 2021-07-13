@@ -90,4 +90,4 @@ fi | indent
 printenv
 
 
-./pipes/pipe  0.0.0.0 "$PORT" react 1
+#./pipes/pipe  0.0.0.0 "$PORT" react 1
